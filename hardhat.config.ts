@@ -36,7 +36,7 @@ export default defineConfig({
       type: "http",
       chainType: "l1",
       url: "https://ethereum-sepolia-rpc.publicnode.com",
-      accounts: process.env.SEPOLIA_PRIVATE_KEY ? [process.env.SEPOLIA_PRIVATE_KEY] : [],
+      accounts: process.env.WALLET_PRIVATE_KEY ? [process.env.WALLET_PRIVATE_KEY] : [],
     },
   },
 });

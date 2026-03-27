@@ -1,57 +1,31 @@
-# Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
+# Sepolia Testnet Token Minting Project
 
-This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+In this project, the ERC-20 Smart Contract is written in Solidity and the script in TypeScript, along with Hardhat framework and Ethers.js toolkit.
+## Dependencies
 
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+This project works on Node.js 24.14.0 (LTS) and Hardhat v3.
 
-## Project Overview
+To deploy this codebase, first initialize Node.js and Hardhat for the project using `npm init -y` and `npx hardhat --init `
 
-This example project includes:
+Hardhat initialization provides several configuration options, therefore, ensure that Hardhat v3 is installed and do not opt for any templates.
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+Install the following dependencies:
+- Ethers.js toolkit: `npm install --save-dev @nomicfoundation/hardhat-toolbox-mocha-ethers`
+- Smart Contracts library: `npm install @openzeppelin/contracts`
+- ENV module: `npm install dotenv`
+## Variable Components
 
-## Usage
+Three variables can be customized to fit with each person's purpose:
+- Receiving address: `const recipient = "0xeE0633a08B3a0d4ff5170bAecab215359731524b";`
+- Minted amount: `const amount = parseUnits("894", 18);` -> sends 894 tokens of your choice
+- Custom payload: `const payload = "FINAL-4035894";`
 
-### Running Tests
+These are only examples for my assignment, and anyone can replace them with suitable information of your own.
 
-To run all the tests in the project, execute the following command:
+## Deployment
 
-```shell
-npx hardhat test
-```
+Create a _.env_ file and insert the sender's wallet key: `WALLET_PRIVATE_KEY=[insert your own key]`
 
-You can also selectively run the Solidity or `mocha` tests:
+Compile your smart contract: `npx hardhat build`
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
-```
-
-### Make a deployment to Sepolia
-
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
-
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
-
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+Deploy the contract on the Sepolia testnet: `npx hardhat run scripts/deploy.ts --network sepolia`
