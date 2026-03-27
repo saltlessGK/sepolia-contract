@@ -21,7 +21,6 @@ async function main() {
     ethers.toUtf8Bytes(payload)
   );
 
-  
   const tx = await deploy.mint(recipient, amount, hexPayload);
   console.log("Transaction hash:", tx.hash);
 

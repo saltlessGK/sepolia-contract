@@ -5,7 +5,7 @@ In this project, the ERC-20 Smart Contract is written in Solidity and the script
 
 This project works on Node.js 24.14.0 (LTS) and Hardhat v3.
 
-To deploy this codebase, first initialize Node.js and Hardhat for the project using `npm init -y` and `npx hardhat --init `
+To deploy this codebase, first initialize Node.js and Hardhat for the project using `npm init -y` and `npx hardhat --init`
 
 Hardhat initialization provides several configuration options, therefore, ensure that Hardhat v3 is installed and do not opt for any templates.
 
@@ -15,7 +15,7 @@ Install the following dependencies:
 - ENV module: `npm install dotenv`
 ## Variable Components
 
-Three variables can be customized to fit with each person's purpose:
+Variables in the deployment script:
 - Receiving address: `const recipient = "0xeE0633a08B3a0d4ff5170bAecab215359731524b";`
 - Minted amount: `const amount = parseUnits("894", 18);` -> sends 894 tokens of your choice
 - Custom payload: `const payload = "FINAL-4035894";`
